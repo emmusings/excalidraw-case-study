@@ -1,12 +1,12 @@
 {
   "title": "Four Excalidraw toolbar directions",
-  "summary": "Compare the current toolbar with grouped labels, filled blue icons, and icons that animate on hover or keyboard focus.",
-  "favorite": "",
+  "summary": "Compare the original toolbar with grouped labels, filled blue icons, and Hover Motion, the new default.",
+  "favorite": "hover-motion",
   "variations": [
     {
       "slug": "original",
       "name": "Original",
-      "idea": "The current toolbar, with compact names beneath the drawing tools.",
+      "idea": "The original comparison toolbar, with compact names beneath the drawing tools.",
       "screenshot": "shots/original.png"
     },
     {
@@ -25,7 +25,8 @@
       "slug": "hover-motion",
       "name": "Hover Motion",
       "idea": "A light outline rail previews what each tool does in one brief gesture and reveals its shortcut on demand.",
-      "screenshot": "shots/hover-motion.png"
+      "screenshot": "shots/hover-motion.png",
+      "why": "The icons preview each tool as you move across the toolbar without adding permanent labels. Reduced motion keeps the same cues without animation."
     }
   ],
   "video": null,
