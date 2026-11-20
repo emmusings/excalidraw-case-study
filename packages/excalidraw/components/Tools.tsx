@@ -233,6 +233,7 @@ export const isToolButtonDisabled = (app: AppClassProperties, type: string) =>
 export type ToolButtonComponentProps = {
   app: AppClassProperties;
   activeTool: UIAppState["activeTool"];
+  showLabel?: boolean;
   /** hide the keybinding badge rendered in the button's corner */
   hideKeyBinding?: boolean;
   /**
@@ -274,6 +275,7 @@ const createToolButton = (
   const ToolButtonComponent = ({
     app,
     activeTool,
+    showLabel,
     hideKeyBinding,
     hideShortcut,
   }: ToolButtonComponentProps) => {
@@ -287,6 +289,7 @@ const createToolButton = (
         icon={config.icon}
         checked={activeTool.type === type}
         disabled={isToolButtonDisabled(app, type)}
+        showAriaLabel={showLabel}
         title={shortcut ? `${label} · ${shortcut}` : label}
         keyBindingLabel={
           hideKeyBinding || hideShortcut
@@ -426,9 +429,11 @@ export const SelectionToolPopover = ({
 export const FreedrawToolPopover = ({
   app,
   activeTool,
+  showLabel,
 }: {
   app: AppClassProperties;
   activeTool: UIAppState["activeTool"];
+  showLabel?: boolean;
 }) => {
   const DRAWING_TOOLS = [
     {
@@ -464,6 +469,7 @@ export const FreedrawToolPopover = ({
       app={app}
       options={DRAWING_TOOLS}
       activeTool={activeTool}
+      showLabel={showLabel}
       defaultOption={lastDrawingTool}
       data-testid="toolbar-freedraw"
       onToolChange={(type: string) => {

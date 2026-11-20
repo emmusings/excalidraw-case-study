@@ -27,6 +27,7 @@ type ToolPopoverProps = {
   app: AppClassProperties;
   options: readonly ToolOption[];
   activeTool: { type: string };
+  showLabel?: boolean;
   defaultOption: string;
   "data-testid": string;
   onToolChange: (type: string) => void;
@@ -37,6 +38,7 @@ export const ToolPopover = ({
   app,
   options,
   activeTool,
+  showLabel,
   defaultOption,
   "data-testid": dataTestId,
   onToolChange,
@@ -70,6 +72,7 @@ export const ToolPopover = ({
           type="toggle"
           icon={displayedOption.icon}
           checked={isActive}
+          showAriaLabel={showLabel}
           disabled={options.every((option) =>
             isToolButtonDisabled(app, option.type),
           )}

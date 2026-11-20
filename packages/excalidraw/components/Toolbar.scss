@@ -1,7 +1,47 @@
 @use "../css/variables.module" as *;
 
 .excalidraw {
+  .ToolIcon__caption {
+    display: none;
+  }
+
   .App-toolbar {
+    @media (min-width: 768px) {
+      &__row {
+        align-items: start;
+      }
+
+      .ToolIcon--labeled .ToolIcon__icon {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0.125rem;
+        width: auto;
+        min-width: var(--lg-button-size);
+        height: calc(var(--lg-button-size) + 0.5rem);
+        padding: calc((var(--lg-button-size) - var(--lg-icon-size)) / 2)
+          0.25rem 0;
+      }
+
+      .ToolIcon__caption {
+        display: block;
+        font: 500 0.6875rem / 1.125 var(--ui-font);
+        white-space: nowrap;
+      }
+
+      .ToolIcon--labeled .ToolIcon__keybinding {
+        top: 2px;
+        bottom: auto;
+      }
+
+      .ToolIcon--checked .ToolIcon__caption {
+        color: var(--color-on-primary-container);
+      }
+
+      .ToolIcon:disabled .ToolIcon__caption {
+        color: var(--color-disabled);
+      }
+    }
+
     &.zen-mode {
       .ToolIcon__keybinding,
       .HintViewer {

@@ -162,6 +162,7 @@ export const IconButton = React.forwardRef(
       <button
         className={clsx("ToolIcon", "ToolIcon_type_toggle", sizeCn, className, {
           "ToolIcon--checked": props.checked,
+          "ToolIcon--labeled": props.showAriaLabel,
         })}
         type="button"
         style={props.style}
@@ -188,6 +189,11 @@ export const IconButton = React.forwardRef(
       >
         <div className="ToolIcon__icon">
           {props.icon}
+          {props.showAriaLabel && (
+            <span className="ToolIcon__caption" aria-hidden="true">
+              {props["aria-label"]}
+            </span>
+          )}
           {props.keyBindingLabel && (
             <span className="ToolIcon__keybinding">
               {props.keyBindingLabel}
