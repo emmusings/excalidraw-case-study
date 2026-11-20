@@ -1,0 +1,92 @@
+.toolbar-words-first .words-first-groups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.375rem;
+  width: max-content;
+  max-width: calc(100vw - 7rem);
+}
+
+.toolbar-words-first .words-first-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.375rem 0.25rem 0.25rem;
+  border-radius: var(--border-radius-md);
+  background: var(--color-surface-low);
+}
+
+.toolbar-words-first .words-first-heading {
+  padding-inline: 0.375rem;
+  color: var(--color-on-surface);
+  font: 650 0.625rem / 1.2 var(--ui-font);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.toolbar-words-first .words-first-tools {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.toolbar-words-first .ToolIcon .ToolIcon__icon,
+.toolbar-words-first .words-first-more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1875rem;
+  width: auto;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding-inline: 0.375rem;
+  font: 500 0.75rem / 1.2 var(--ui-font);
+  white-space: nowrap;
+}
+
+.toolbar-words-first .ToolIcon__icon svg,
+.toolbar-words-first .words-first-more svg {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.toolbar-words-first .ToolIcon__caption {
+  display: block;
+}
+
+.toolbar-words-first .ToolIcon__keybinding {
+  display: none;
+}
+
+.toolbar-words-first .words-first-more {
+  appearance: none;
+  border: 0;
+  border-radius: var(--border-radius-lg);
+  background: transparent;
+  color: var(--color-on-surface);
+  cursor: pointer;
+}
+
+.toolbar-words-first .words-first-more:hover,
+.toolbar-words-first .words-first-more[data-state="open"] {
+  background: var(--button-hover-bg);
+}
+
+.toolbar-words-first .words-first-more[data-selected="true"] {
+  background: var(--color-surface-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+.toolbar-words-first .words-first-more:focus-visible {
+  outline: 2px solid var(--focus-highlight-color);
+  outline-offset: -2px;
+}
+
+.toolbar-words-first .words-first-menu {
+  min-width: 12rem;
+}
+
+.toolbar-words-first .words-first-menu .dropdown-menu-item[data-highlighted] {
+  background: var(--button-hover-bg);
+}
