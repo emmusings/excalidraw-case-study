@@ -17,6 +17,8 @@ npm start
 
 `npm start` prints the local URL (the first free port from 3000 up) and saves it in `.workshop/server.json`. On Windows PowerShell, type `npm.cmd` instead of `npm`.
 
+To draw a square, select **Rectangle** and hold **Shift** while dragging on the canvas.
+
 Other scripts:
 
 - `npm run build` builds the site into `dist/`
