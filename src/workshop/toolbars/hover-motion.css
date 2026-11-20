@@ -1,0 +1,268 @@
+.toolbar-hover-motion {
+  position: relative;
+  color: var(--color-on-surface);
+  font-family: var(--ui-font);
+}
+
+.toolbar-hover-motion .hover-motion-rail {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--color-surface-low);
+  border-radius: 12px;
+  background: var(--color-surface-mid);
+  box-shadow: 0 2px 6px #0001;
+}
+
+.toolbar-hover-motion .hover-motion-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.toolbar-hover-motion .hover-motion-lock {
+  margin-inline-end: 6px;
+}
+
+.toolbar-hover-motion .hover-motion-more {
+  margin-inline-start: 6px;
+}
+
+.toolbar-hover-motion :is(.hover-motion-lock, .hover-motion-more)::before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 20px;
+  background: var(--color-surface-low);
+}
+
+.toolbar-hover-motion .hover-motion-lock::before {
+  inset-inline-end: -5px;
+}
+
+.toolbar-hover-motion .hover-motion-more::before {
+  inset-inline-start: -5px;
+}
+
+.toolbar-hover-motion
+  .hover-motion-button:is([aria-pressed="true"], [data-active]) {
+  border-color: var(--color-primary);
+  background: var(--island-bg-color);
+  color: var(--color-primary-darkest);
+}
+
+.toolbar-hover-motion
+  .hover-motion-button:not(:disabled):is(
+    :hover,
+    :focus-visible,
+    [aria-expanded="true"]
+  ) {
+  background-color: var(--color-surface-high);
+}
+
+.toolbar-hover-motion .hover-motion-button:focus-visible {
+  z-index: 1;
+  outline: 2px solid var(--color-primary-darkest);
+  outline-offset: 1px;
+}
+
+.toolbar-hover-motion .hover-motion-button:disabled,
+.toolbar-hover-motion .hover-motion-menu-item[data-disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.toolbar-hover-motion .hover-motion-icon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.toolbar-hover-motion .hover-motion-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.toolbar-hover-motion .hover-motion-label {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px 3px 8px;
+  border: 1px solid var(--color-surface-low);
+  border-radius: 6px;
+  background: var(--island-bg-color);
+  color: var(--color-on-surface);
+  box-shadow: 0 2px 6px #0001;
+  font: 500 0.75rem / 1.25 var(--ui-font);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toolbar-hover-motion
+  .hover-motion-button:not(:disabled, [aria-expanded="true"]):hover
+  .hover-motion-label,
+.toolbar-hover-motion
+  .hover-motion-rail:not(:has(
+    .hover-motion-button:hover:not(:disabled),
+    .hover-motion-more[aria-expanded="true"]
+  ))
+  .hover-motion-button:focus-visible
+  .hover-motion-label {
+  display: flex;
+}
+
+.toolbar-hover-motion .hover-motion-key {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--color-surface-low);
+  font: 0.6875rem / 1.35 var(--ui-font);
+  white-space: nowrap;
+}
+
+.toolbar-hover-motion .HintViewer {
+  margin-top: 2rem;
+}
+
+/* Leave the welcome arrow below both the contextual label and the app hint. */
+.excalidraw :has(.toolbar-hover-motion) > .welcome-screen-decor-hint--toolbar {
+  margin-top: 4rem;
+}
+
+.toolbar-hover-motion .hover-motion-menu {
+  z-index: 3;
+  min-width: 13rem;
+  max-height: var(--radix-dropdown-menu-content-available-height);
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--color-surface-low);
+  border-radius: 10px;
+  background: var(--island-bg-color);
+  box-shadow: var(--shadow-island);
+}
+
+.toolbar-hover-motion .hover-motion-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.toolbar-hover-motion .hover-motion-menu-item[data-state="checked"] {
+  color: var(--color-primary-darkest);
+  box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.toolbar-hover-motion .hover-motion-menu-item[data-highlighted] {
+  background: var(--color-surface-high);
+}
+
+.toolbar-hover-motion .hover-motion-menu-item .hover-motion-key {
+  margin-inline-start: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toolbar-hover-motion [data-tool="hand"] {
+    --hover-motion-gesture: translateX(-3px) rotate(-8deg);
+  }
+
+  .toolbar-hover-motion [data-tool="selection"] {
+    --hover-motion-gesture: translate(-2px, -2px);
+  }
+
+  .toolbar-hover-motion
+    :is([data-tool="rectangle"], [data-tool="diamond"], [data-tool="ellipse"]) {
+    --hover-motion-gesture: scale(1.16);
+    --hover-motion-origin: 20% 20%;
+  }
+
+  .toolbar-hover-motion [data-tool="arrow"] {
+    --hover-motion-gesture: translateX(4px);
+  }
+
+  .toolbar-hover-motion [data-tool="line"] {
+    --hover-motion-gesture: scaleX(1.24);
+    --hover-motion-origin: 20% 50%;
+  }
+
+  .toolbar-hover-motion [data-tool="freedraw"] {
+    --hover-motion-gesture: translate(3px, 1px) rotate(8deg);
+  }
+
+  .toolbar-hover-motion [data-tool="text"] {
+    --hover-motion-gesture: scaleY(1.14);
+    --hover-motion-origin: bottom;
+  }
+
+  .toolbar-hover-motion [data-tool="stickynote"] {
+    --hover-motion-gesture: translateY(-2px) rotate(9deg);
+    --hover-motion-origin: top left;
+  }
+
+  .toolbar-hover-motion [data-tool="eraser"] {
+    --hover-motion-gesture: translate(-4px, 2px);
+  }
+
+  .toolbar-hover-motion
+    [data-tool]:not(:disabled):is(:hover, :focus-visible)
+    .hover-motion-icon {
+    transform-origin: var(--hover-motion-origin, center);
+    animation: hover-motion-gesture 240ms ease-in-out;
+  }
+
+  .toolbar-hover-motion
+    [data-tool="freedraw"]:not(:disabled):is(:hover, :focus-visible)::after {
+    position: absolute;
+    content: "";
+    bottom: 6px;
+    left: 10px;
+    width: 7px;
+    height: 1px;
+    border-radius: 1px;
+    background: currentColor;
+    transform-origin: left center;
+    animation: hover-motion-stroke 240ms ease-out forwards;
+  }
+
+  @keyframes hover-motion-gesture {
+    45% {
+      transform: var(--hover-motion-gesture);
+    }
+  }
+
+  @keyframes hover-motion-stroke {
+    from {
+      transform: scaleX(0);
+    }
+
+    55% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    to {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+  }
+}
