@@ -29,7 +29,16 @@
       "why": "The icons preview each tool as you move across the toolbar without adding permanent labels. Reduced motion keeps the same cues without animation."
     }
   ],
-  "video": null,
-  "pr": null,
+  "video": {
+    "src": "demo.mp4",
+    "captions": "demo.vtt",
+    "poster": "demo.jpg",
+    "title": "Draw a simple flow with Hover Motion"
+  },
+  "pr": {
+    "url": "https://github.com/emmusings/excalidraw-case-study/pull/1",
+    "title": "toolbar: Make Hover Motion the default",
+    "number": 1
+  },
   "updated": "2026-11-19"
 }
