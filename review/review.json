@@ -1,9 +1,34 @@
 {
-  "title": "",
-  "summary": "",
+  "title": "Four Excalidraw toolbar directions",
+  "summary": "Compare the current toolbar with grouped labels, filled blue icons, and icons that animate on hover or keyboard focus.",
   "favorite": "",
-  "variations": [],
+  "variations": [
+    {
+      "slug": "original",
+      "name": "Original",
+      "idea": "The current toolbar, with compact names beneath the drawing tools.",
+      "screenshot": "shots/original.png"
+    },
+    {
+      "slug": "words-first",
+      "name": "Words First",
+      "idea": "Find tools by task, with a clear name under every icon.",
+      "screenshot": "shots/words-first.png"
+    },
+    {
+      "slug": "solid-icons",
+      "name": "Solid Icons",
+      "idea": "Filled blue silhouettes make the tools easy to scan, and a high-contrast chip marks the active tool.",
+      "screenshot": "shots/solid-icons.png"
+    },
+    {
+      "slug": "hover-motion",
+      "name": "Hover Motion",
+      "idea": "A light outline rail previews what each tool does in one brief gesture and reveals its shortcut on demand.",
+      "screenshot": "shots/hover-motion.png"
+    }
+  ],
   "video": null,
   "pr": null,
-  "updated": ""
+  "updated": "2026-11-19"
 }
