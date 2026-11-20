@@ -216,6 +216,7 @@ export const Toolbar = ({
 
   const activeTool = appState.activeTool;
   const toolProps = { app, activeTool };
+  const labeledToolProps = { ...toolProps, showLabel: true };
 
   return (
     <Island
@@ -233,7 +234,10 @@ export const Toolbar = ({
         app={app}
       />
       {heading}
-      <Stack.Row gap={isCompactStylesPanel ? 0.5 : 1}>
+      <Stack.Row
+        className="App-toolbar__row"
+        gap={isCompactStylesPanel ? 0.5 : 1}
+      >
         {/* in compact UI the pen mode button is rendered as a separate
             floating button below the compact actions menu */}
         {!isCompactStylesPanel && (
@@ -269,19 +273,19 @@ export const Toolbar = ({
         ) : (
           <SelectionToolButton {...toolProps} />
         )}
-        <RectangleToolButton {...toolProps} />
-        <DiamondToolButton {...toolProps} />
-        <EllipseToolButton {...toolProps} />
-        <ArrowToolButton {...toolProps} />
-        <LineToolButton {...toolProps} />
+        <RectangleToolButton {...labeledToolProps} />
+        <DiamondToolButton {...labeledToolProps} />
+        <EllipseToolButton {...labeledToolProps} />
+        <ArrowToolButton {...labeledToolProps} />
+        <LineToolButton {...labeledToolProps} />
         {isCompactStylesPanel ? (
-          <FreedrawToolPopover {...toolProps} />
+          <FreedrawToolPopover {...labeledToolProps} />
         ) : (
-          <FreedrawToolButton {...toolProps} />
+          <FreedrawToolButton {...labeledToolProps} />
         )}
-        <TextToolButton {...toolProps} />
-        <StickyNoteToolButton {...toolProps} />
-        <EraserToolButton {...toolProps} />
+        <TextToolButton {...labeledToolProps} />
+        <StickyNoteToolButton {...labeledToolProps} />
+        <EraserToolButton {...labeledToolProps} />
 
         <div
           className="App-toolbar__divider"

@@ -1,0 +1,173 @@
+.excalidraw .toolbar-solid-icons {
+  --solid-surface: #f8fafc;
+  --solid-ink: #1952a6;
+  --solid-border: #c8d3e2;
+  --solid-hover: #e4ecf7;
+  --solid-selected: #123b77;
+  --solid-on-selected: #a6ddff;
+  --solid-marker: #6bbcff;
+  --solid-focus: #2459cc;
+  --solid-target: clamp(2rem, 5vw, 2.375rem);
+  position: relative;
+  color: var(--solid-ink);
+}
+
+.excalidraw.theme--dark .toolbar-solid-icons {
+  --solid-surface: #1d2739;
+  --solid-ink: #a4d1ff;
+  --solid-border: #475774;
+  --solid-hover: #34445d;
+  --solid-selected: #86c3ff;
+  --solid-on-selected: #0c356b;
+  --solid-marker: #0c356b;
+  --solid-focus: #9dc5ff;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-rail {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.25rem;
+  border: 1px solid var(--solid-border);
+  border-radius: 0.75rem;
+  background: var(--solid-surface);
+  box-shadow: var(--shadow-island);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--solid-target);
+  inline-size: var(--solid-target);
+  block-size: var(--solid-target);
+  padding: 0;
+  border: 0;
+  border-radius: 0.4375rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-lock {
+  margin-inline-end: 0.375rem;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-extras {
+  margin-inline-start: 0.375rem;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-lock::before,
+.excalidraw .toolbar-solid-icons .solid-icons-extras::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.5rem;
+  width: 1px;
+  background: var(--solid-border);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-lock::before {
+  inset-inline-end: -0.25rem;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-extras::before {
+  inset-inline-start: -0.25rem;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button:where(:hover, [data-state="open"]):not(:disabled) {
+  background: var(--solid-hover);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button:disabled,
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item[data-disabled] {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button:focus-visible {
+  outline: 2px solid var(--solid-focus);
+  outline-offset: 0;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button:is([aria-pressed="true"], [data-active]) {
+  background: var(--solid-selected);
+  color: var(--solid-on-selected);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button:is([aria-pressed="true"], [data-active])::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0.1875rem;
+  inline-size: 0.625rem;
+  block-size: 0.125rem;
+  border-radius: 1px;
+  background: var(--solid-marker);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-button svg,
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item svg {
+  inline-size: 1.375rem;
+  block-size: 1.375rem;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu {
+  position: relative;
+  z-index: 1;
+  min-inline-size: 12rem;
+  padding: 0.25rem;
+  border: 1px solid var(--solid-border);
+  border-radius: 0.625rem;
+  background: var(--solid-surface);
+  box-shadow: var(--shadow-island);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2rem;
+  padding-inline: 0.5rem;
+  border-radius: 0.3125rem;
+  font: 500 0.8125rem var(--ui-font);
+  cursor: pointer;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item[data-state="checked"] {
+  background: var(--solid-selected);
+  color: var(--solid-on-selected);
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item[data-highlighted] {
+  outline: 2px solid var(--solid-focus);
+  outline-offset: -2px;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item svg {
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex: none;
+}
+
+.excalidraw .toolbar-solid-icons .solid-icons-menu-item kbd {
+  margin-inline-start: auto;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+
+@media (forced-colors: active) {
+  .excalidraw .toolbar-solid-icons {
+    --solid-marker: HighlightText;
+  }
+
+  .excalidraw .toolbar-solid-icons .solid-icons-button:is([aria-pressed="true"], [data-active]),
+  .excalidraw .toolbar-solid-icons .solid-icons-menu-item[data-state="checked"] {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .excalidraw .toolbar-solid-icons .solid-icons-button:focus-visible,
+  .excalidraw .toolbar-solid-icons .solid-icons-menu-item[data-highlighted] {
+    outline-color: CanvasText;
+  }
+}

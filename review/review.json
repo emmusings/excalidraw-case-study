@@ -1,9 +1,44 @@
 {
-  "title": "",
-  "summary": "",
-  "favorite": "",
-  "variations": [],
-  "video": null,
-  "pr": null,
-  "updated": ""
+  "title": "Four Excalidraw toolbar directions",
+  "summary": "Compare the original toolbar with grouped labels, filled blue icons, and Hover Motion, the new default.",
+  "favorite": "hover-motion",
+  "variations": [
+    {
+      "slug": "original",
+      "name": "Original",
+      "idea": "The original comparison toolbar, with compact names beneath the drawing tools.",
+      "screenshot": "shots/original.png"
+    },
+    {
+      "slug": "words-first",
+      "name": "Words First",
+      "idea": "Find tools by task, with a clear name under every icon.",
+      "screenshot": "shots/words-first.png"
+    },
+    {
+      "slug": "solid-icons",
+      "name": "Solid Icons",
+      "idea": "Filled blue silhouettes make the tools easy to scan, and a high-contrast chip marks the active tool.",
+      "screenshot": "shots/solid-icons.png"
+    },
+    {
+      "slug": "hover-motion",
+      "name": "Hover Motion",
+      "idea": "A light outline rail previews what each tool does in one brief gesture and reveals its shortcut on demand.",
+      "screenshot": "shots/hover-motion.png",
+      "why": "The icons preview each tool as you move across the toolbar without adding permanent labels. Reduced motion keeps the same cues without animation."
+    }
+  ],
+  "video": {
+    "src": "demo.mp4",
+    "captions": "demo.vtt",
+    "poster": "demo.jpg",
+    "title": "Draw a simple flow with Hover Motion"
+  },
+  "pr": {
+    "url": "https://github.com/emmusings/excalidraw-case-study/pull/1",
+    "title": "toolbar: Make Hover Motion the default",
+    "number": 1
+  },
+  "updated": "2026-11-19"
 }
