@@ -1,10 +1,6 @@
 import { DropdownMenu } from "radix-ui";
 
-import {
-  DotsIcon,
-  LockedIcon,
-  UnlockedIcon,
-} from "@excalidraw/excalidraw/components/icons";
+import { DotsIcon, PinIcon } from "@excalidraw/excalidraw/components/icons";
 import { t } from "@excalidraw/excalidraw/i18n";
 
 import type { ToolbarMeta, ToolbarProps, ToolbarTool } from "../types";
@@ -24,13 +20,19 @@ function ButtonFace({
   icon,
   label,
   shortcut,
+  caption,
 }: Pick<ToolbarTool, "icon" | "label"> &
-  Partial<Pick<ToolbarTool, "shortcut">>) {
+  Partial<Pick<ToolbarTool, "shortcut">> & { caption?: string }) {
   return (
     <>
       <span className="hover-motion-icon" aria-hidden="true">
         {icon}
       </span>
+      {caption && (
+        <span className="hover-motion-caption" aria-hidden="true">
+          {caption}
+        </span>
+      )}
       <span className="hover-motion-label" aria-hidden="true">
         {label}
         <KeyHint shortcut={shortcut} />
@@ -48,14 +50,17 @@ export default function HoverMotionToolbar({
   app,
   appState,
 }: ToolbarProps) {
-  const mainTools = tools.filter((tool) => tool.group === "main");
-  const extraTools = tools.filter(
+  const mainTools = tools.filter(
     (tool) =>
-      tool.group === "more" &&
-      (tool.type !== "image" || app.props.UIOptions.tools?.image !== false),
+      tool.group === "main" ||
+      (tool.type === "image" && app.props.UIOptions.tools?.image !== false),
+  );
+  const extraTools = tools.filter(
+    (tool) => tool.group === "more" && tool.type !== "image",
   );
   const activeExtra = extraTools.find((tool) => tool.active);
-  const lockLabel = t("toolBar.lock");
+  const lockLabel = t("toolBar.keepTool");
+  const lockHint = t("toolBar.keepToolHint");
   const moreLabel = t("toolBar.extraTools");
 
   return (
@@ -70,14 +75,16 @@ export default function HoverMotionToolbar({
             type="button"
             className="hover-motion-button hover-motion-lock"
             aria-label={lockLabel}
+            aria-description={lockHint}
             aria-keyshortcuts="Q"
             aria-pressed={locked}
             data-testid="toolbar-lock"
             onClick={toggleLock}
           >
             <ButtonFace
-              icon={locked ? LockedIcon : UnlockedIcon}
-              label={lockLabel}
+              icon={PinIcon}
+              label={lockHint}
+              caption={lockLabel}
               shortcut="Q"
             />
           </button>
@@ -106,6 +113,7 @@ export default function HoverMotionToolbar({
                 icon={tool.icon}
                 label={tool.label}
                 shortcut={shortcut}
+                caption={tool.type === "image" ? t("element.image") : undefined}
               />
             </button>
           );

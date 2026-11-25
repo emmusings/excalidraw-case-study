@@ -340,6 +340,8 @@
     "text": "Text",
     "library": "Library",
     "lock": "Keep selected tool active after drawing",
+    "keepTool": "Keep tool",
+    "keepToolHint": "When on, the selected tool stays active after you draw.",
     "penMode": "Pen mode - prevent touch",
     "link": "Add / Update link for a selected shape",
     "eraser": "Eraser",
