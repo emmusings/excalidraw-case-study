@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Practice findings: Excalidraw case study</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="review.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <p class="kicker">Excalidraw case study</p>
+        <h1 class="title">What we changed in Hover Motion</h1>
+        <p class="summary">
+          Put Image and Keep tool in plain sight. Keep the other labels and
+          shortcuts available on hover and keyboard focus.
+        </p>
+        <div class="actions">
+          <a class="button button--primary" href="../?toolbar=hover-motion">Try Hover Motion</a>
+          <a class="button" href="./">Back to the toolbar comparison</a>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="findings">
+        <h2 class="section__title" id="findings">Top findings</h2>
+        <ol>
+          <li>
+            <p><strong>3 of 6 did not finish the repeat-drawing task.</strong>
+              P5: “Keep tool... keep it where?”</p>
+            <p>We gave the toggle a visible pin and a tooltip that explains
+              what stays active after drawing.</p>
+          </li>
+          <li>
+            <p><strong>1 of 6 missed Image on a tablet; 5 of 6 added a photo.</strong>
+              P6: “Image being right there is great. Last time I couldn't find it at all.”</p>
+            <p>We moved Image onto the rail and kept 44 px targets even when
+              the toolbar wraps on narrow layouts.</p>
+          </li>
+          <li>
+            <p><strong>6 of 6 finished boxes and arrows.</strong>
+              P1: “Oh, they have names now. That's all I needed.”
+              P2: “I'd turn the words off after a day, but today I need them.”</p>
+            <p>We kept contextual names and shortcuts, turned animation off
+              for reduced motion, and added a dot to mark the selected tool.</p>
+          </li>
+        </ol>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Fictional AI-First Design Workshop practice material. Six first-time
+          users tried a different, labeled prototype, not Hover Motion.
+          These observations and separate stakeholder feedback suggest what to
+          retest; they don't show that the changes improved performance.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -6,6 +6,7 @@
 
 .toolbar-hover-motion .hover-motion-rail {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 2px;
   padding: 4px;
@@ -17,12 +18,15 @@
 
 .toolbar-hover-motion .hover-motion-button {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
   flex: none;
-  width: 36px;
-  height: 36px;
-  padding: 0;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 6px;
   border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
@@ -54,6 +58,13 @@
   inset-inline-start: -5px;
 }
 
+.toolbar-hover-motion .hover-motion-caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .toolbar-hover-motion
   .hover-motion-button:is([aria-pressed="true"], [data-active]) {
   border-color: var(--color-primary);
@@ -83,10 +94,25 @@
 }
 
 .toolbar-hover-motion .hover-motion-icon {
+  position: relative;
   display: grid;
   place-items: center;
   width: 20px;
   height: 20px;
+}
+
+.toolbar-hover-motion
+  .hover-motion-button:is([aria-pressed="true"], [data-active])
+  > .hover-motion-icon::before {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: -7px;
+  box-sizing: border-box;
+  width: 5px;
+  height: 5px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  content: "";
 }
 
 .toolbar-hover-motion .hover-motion-icon svg {
@@ -112,6 +138,11 @@
   font: 500 0.75rem / 1.25 var(--ui-font);
   white-space: nowrap;
   pointer-events: none;
+}
+
+.toolbar-hover-motion .hover-motion-lock .hover-motion-label {
+  left: 0;
+  transform: none;
 }
 
 .toolbar-hover-motion
@@ -160,7 +191,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 34px;
+  min-height: 44px;
   padding: 0 8px;
   border-radius: 6px;
   font-size: 0.8125rem;
@@ -179,6 +210,30 @@
 
 .toolbar-hover-motion .hover-motion-menu-item .hover-motion-key {
   margin-inline-start: auto;
+}
+
+@media (max-width: 800px) {
+  .toolbar-hover-motion .hover-motion-rail {
+    flex-wrap: wrap;
+    width: min(24rem, calc(100vw - 7rem));
+  }
+
+  .toolbar-hover-motion .hover-motion-button {
+    position: static;
+  }
+
+  .toolbar-hover-motion :is(.hover-motion-lock, .hover-motion-more) {
+    margin-inline: 0;
+  }
+
+  .toolbar-hover-motion :is(.hover-motion-lock, .hover-motion-more)::before {
+    display: none;
+  }
+
+  .toolbar-hover-motion .hover-motion-lock .hover-motion-label {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -231,11 +286,12 @@
   }
 
   .toolbar-hover-motion
-    [data-tool="freedraw"]:not(:disabled):is(:hover, :focus-visible)::after {
+    [data-tool="freedraw"]:not(:disabled):is(:hover, :focus-visible)
+    .hover-motion-icon::after {
     position: absolute;
     content: "";
-    bottom: 6px;
-    left: 10px;
+    bottom: -2px;
+    left: 2px;
     width: 7px;
     height: 1px;
     border-radius: 1px;
